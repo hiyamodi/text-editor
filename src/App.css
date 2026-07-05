@@ -326,7 +326,7 @@ body {
 }
 /* Images */
 
-..ProseMirror img {
+.ProseMirror img {
   height: auto;
   border-radius: 10px;
   transition: 0.2s ease;
