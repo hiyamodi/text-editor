@@ -1,0 +1,46 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px;
+  background: white;
+  border-radius: 14px;
+}
+
+/* each section = box */
+.group {
+  flex: 1;
+  min-width: 300px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+/* label */
+.label {
+  min-width: 90px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* buttons */
+.group button {
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.group button:hover {
+  transform: translateY(-2px);
+  background: #e0e7ff;
+}

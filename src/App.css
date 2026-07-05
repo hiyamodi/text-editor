@@ -1,0 +1,358 @@
+/* ==========================================
+   GLOBAL
+========================================== */
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+/* ==========================================
+   APP
+========================================== */
+
+.app {
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 42px;
+  margin: 0;
+  color: #4338ca;
+  font-weight: 700;
+}
+
+.header p {
+  margin-top: 10px;
+  color: #64748b;
+  font-size: 17px;
+}
+/* ==========================================
+   EDITOR CONTAINER
+========================================== */
+
+.text-editor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================
+   TOOLBAR
+========================================== */
+
+.toolbar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+
+  padding: 18px;
+
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.toolbar-section {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  padding: 12px;
+
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.toolbar-section.templates {
+  grid-column: 1 / 3;
+}
+
+.toolbar-section strong {
+  width: 90px;
+  color: #475569;
+  font-size: 14px;
+}
+
+.toolbar button {
+  border: none;
+  background: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+
+  transition: .2s;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,.05);
+}
+
+.toolbar button:hover {
+  background: #e0e7ff;
+  transform: translateY(-2px);
+}
+
+.toolbar button.active {
+  background: #4f46e5;
+  color: white;
+}
+
+/* ==========================================
+   DOCUMENT (A4)
+========================================== */
+
+.ProseMirror {
+  width: 210mm;
+  min-height: 297mm;
+
+  margin: 35px auto;
+
+  padding: 60px;
+
+  background: white;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  box-shadow: 0 10px 35px rgba(0,0,0,.08);
+
+  outline: none;
+
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.ProseMirror:focus {
+  outline: none;
+}
+
+/* ==========================================
+   HEADINGS
+========================================== */
+
+.ProseMirror h1 {
+  color: #4f46e5;
+  font-size: 30px;
+}
+
+.ProseMirror h2 {
+  color: #334155;
+  font-size: 22px;
+}
+
+/* ==========================================
+   LISTS
+========================================== */
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding-left: 28px;
+}
+
+.ProseMirror li {
+  margin: 6px 0;
+}
+
+/* ==========================================
+   TABLES
+========================================== */
+
+.ProseMirror table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.ProseMirror th,
+.ProseMirror td {
+  border: 1px solid #cbd5e1;
+  padding: 10px;
+}
+
+.ProseMirror th {
+  background: #eef2ff;
+  font-weight: 600;
+}
+
+.ProseMirror tr:hover {
+  background: #f8fafc;
+}
+
+/* ==========================================
+   STATUS BAR
+========================================== */
+
+.status {
+  width: 100%;
+  padding: 14px 25px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  border-top: 1px solid #e2e8f0;
+
+  background: #f8fafc;
+
+  font-size: 14px;
+  color: #64748b;
+}
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar-section.templates {
+    grid-column: auto;
+  }
+
+  /* ==========================================
+   DOCUMENT (A4)
+========================================== */
+
+.ProseMirror {
+  width: 210mm;
+  min-height: 297mm;
+
+  margin: 40px auto;
+  padding: 65px 70px;
+
+  background: #ffffff;
+
+  border: 1px solid #dbe3ea;
+  border-radius: 8px;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.06),
+    0 18px 45px rgba(0,0,0,0.08);
+
+  outline: none;
+
+  font-size: 17px;
+  line-height: 1.9;
+  color: #1e293b;
+
+  transition: box-shadow .2s ease;
+}
+
+.ProseMirror:focus {
+  box-shadow:
+    0 6px 18px rgba(79,70,229,.15),
+    0 22px 50px rgba(0,0,0,.10);
+}
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: "Start writing your document...";
+  color: #94a3b8;
+  float: left;
+  pointer-events: none;
+  height: 0;
+}
+
+}
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+
+  display: block;
+
+  margin: 20px auto;
+
+  border-radius: 10px;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+/* Default image */
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+/* Left aligned */
+.ProseMirror img.image-left {
+  float: left;
+  margin: 10px 20px 10px 0;
+  width: 250px;
+}
+
+/* Right aligned */
+.ProseMirror img.image-right {
+  float: right;
+  margin: 10px 0 10px 20px;
+  width: 250px;
+}
+
+/* Center */
+.ProseMirror img.image-center {
+  display: block;
+  margin: 20px auto;
+  width: 350px;
+}
+
+/* Clear floats after paragraphs */
+.ProseMirror p::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* Images */
+
+..ProseMirror img {
+  height: auto;
+  border-radius: 10px;
+  transition: 0.2s ease;
+  max-width: 100%;
+}
+
+/* alignment only (NO width here anymore) */
+
+.ProseMirror img.image-center {
+  display: block;
+  margin: 20px auto;
+}
+
+.ProseMirror img.image-left {
+  float: left;
+  margin: 10px 20px 10px 0;
+}
+
+.ProseMirror img.image-right {
+  float: right;
+  margin: 10px 0 10px 20px;
+}
+
+/* clear float */
+.ProseMirror::after {
+  content: "";
+  display: block;
+  clear: both;
+}
